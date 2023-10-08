@@ -18,7 +18,7 @@ return {
   },
 
   -- Set colorscheme to use
-  colorscheme = "catppuccin",
+  colorscheme = "catppuccin-mocha",
 
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
@@ -71,8 +71,8 @@ return {
       php = {
         type = "executable",
         command = "node",
-        args = { os.getenv("HOME") .. "/vscode-php-debug/out/phpDebug.js" }
-      }
+        args = { os.getenv "HOME" .. "/vscode-php-debug/out/phpDebug.js" },
+      },
     },
     configuration = {
       php = {
@@ -81,10 +81,10 @@ return {
         name = "Listen for Xdebug",
         port = 9003,
         pathMappings = {
-          ["/var/www/html"] = "${workspaceFolder}"
-        }
-      }
-    }
+          ["/var/www/html"] = "${workspaceFolder}",
+        },
+      },
+    },
   },
 
   -- This function is run last and is a good place to configuring
