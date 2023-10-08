@@ -55,6 +55,9 @@ return {
     },
   },
 
+  plugins = {
+    { "mfussenegger/nvim-dap", enabled = true },
+  },
   -- Configure require("lazy").setup() options
   lazy = {
     defaults = { lazy = true },
@@ -70,19 +73,25 @@ return {
   -- augroups/autocommands and custom filetypes also this just pure lua so
   -- anything that doesn't fit in the normal config locations above can go here
   polish = function()
-    -- Set up custom filetypes
-    -- vim.filetype.add {
-    --   extension = {
-    --     foo = "fooscript",
-    --   },
-    --   filename = {
-    --     ["Foofile"] = "fooscript",
-    --   },
-    --   pattern = {
-    --     ["~/%.config/foo/.*"] = "fooscript",
-    --   },
-    -- }
+    local dap = require "dap"
+    dap.adapters.php = {
+      type = "executable",
+      command = "nodejs",
+      args = { "~/vscode-php-debug/out/phpDebug.js" },
+    }
+
+    dap.configurations.php = {
+      {
+        type = "php",
+        request = "launch",
+        name = "Listen for xdebug",
+        port = "9003",
+        pathMappings = {
+          ["/var/www/html"] = "${workspaceFolder}",
+        },
+      },
+    }
   end,
 
-  require("dap.ext.vscode").load_launchjs("/home/aperez/source/core-app/.vscode/launch.json", { php = { "php" } }),
+  -- require("dap.ext.vscode").load_launchjs("/home/aperez/source/core-app/.vscode/launch.json", { php = { "php" } }),
 }
