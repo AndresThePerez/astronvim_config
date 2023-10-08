@@ -82,6 +82,4 @@ return {
     --   },
     -- }
   end,
-
-  require('dap.ext.vscode').load_launchjs("/home/aperez/source/core-app/.vscode/launch.json", { php = { 'php' } })
 }
