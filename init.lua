@@ -66,27 +66,6 @@ return {
     },
   },
 
-  dap = {
-    adapters = {
-      php = {
-        type = "executable",
-        command = "node",
-        args = { os.getenv "HOME" .. "/vscode-php-debug/out/phpDebug.js" },
-      },
-    },
-    configuration = {
-      php = {
-        type = "php",
-        request = "launch",
-        name = "Listen for Xdebug",
-        port = 9003,
-        pathMappings = {
-          ["/var/www/html"] = "${workspaceFolder}",
-        },
-      },
-    },
-  },
-
   -- This function is run last and is a good place to configuring
   -- augroups/autocommands and custom filetypes also this just pure lua so
   -- anything that doesn't fit in the normal config locations above can go here
@@ -104,4 +83,6 @@ return {
     --   },
     -- }
   end,
+
+  require("dap.ext.vscode").load_launchjs("/home/aperez/source/core-app/.vscode/launch.json", { php = { "php" } }),
 }
