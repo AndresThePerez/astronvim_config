@@ -15,15 +15,15 @@ return {
     "gbprod/phpactor.nvim",
     requires = {
       "nvim-lua/plenary.nvim", -- required to update phpactor
-      "neovim/nvim-lspconfig"  -- required to automaticly register lsp serveur
+      "neovim/nvim-lspconfig", -- required to automaticly register lsp serveur
     },
     config = function()
-      require("phpactor").setup({
+      require("phpactor").setup {
         -- your configuration comes here
         -- or leave it empty to use the default settings
         -- refer to the configuration section below
-      })
-    end
+      }
+    end,
   },
   -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
   {

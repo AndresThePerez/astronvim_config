@@ -34,6 +34,7 @@ return {
         enabled = true, -- enable or disable format on save globally
         allow_filetypes = { -- enable format on save for specified filetypes only
           "php",
+          "js"
         },
         ignore_filetypes = { -- disable format on save for specified filetypes
           -- "python",
@@ -51,22 +52,9 @@ return {
     -- enable servers that you already have installed without mason
     servers = {
       -- "pyright"
-      "phpactor",
     },
   },
 
-  plugins = {
-    { "mfussenegger/nvim-dap", enabled = true },
-    {
-      "goolord/alpha-nvim",
-      opts = function(_, opts) -- override the options using lazy.nvim
-        opts.section.header.val = { -- change the header section value
-          "    My Custom ",
-          " Dashboard Header",
-        }
-      end,
-    },
-  },
   -- Configure require("lazy").setup() options
   lazy = {
     defaults = { lazy = true },
@@ -93,7 +81,7 @@ return {
       {
         type = "php",
         request = "launch",
-        name = "Listen for xdebug",
+        name = "Debug",
         port = "9003",
         pathMappings = {
           ["/var/www/html"] = "${workspaceFolder}",
