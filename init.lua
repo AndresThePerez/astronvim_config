@@ -33,8 +33,8 @@ return {
       format_on_save = {
         enabled = true, -- enable or disable format on save globally
         allow_filetypes = { -- enable format on save for specified filetypes only
-          "php",
-          "js"
+          "js",
+          "php"
         },
         ignore_filetypes = { -- disable format on save for specified filetypes
           -- "python",
@@ -51,8 +51,25 @@ return {
     },
     -- enable servers that you already have installed without mason
     servers = {
-      -- "pyright"
+      "phpcsfixer",
+      "phpcs"
     },
+    config = {
+      phpcsfixer = function()
+        return {
+          cmd = { "php-cs-fixer", "--rules", "@PSR12" };
+          filetypes = { "php" };
+          root_dir = require("lspconfig.util").root_pattern('php')
+        }
+      end,
+      phpcs = function()
+          return {
+            cmd = { "phpcs", "--standard", "~/.config/nvim/lua/user/standards/PSR12_ruleset.xml" };
+            filetypes = { "php" };
+            root_dir = require("lspconfig.util").root_pattern('php')
+          }
+      end,
+    }
   },
 
   -- Configure require("lazy").setup() options
