@@ -9,6 +9,4 @@ return {
   --     require("lsp_signature").setup()
   --   end,
   -- },
-  "mfussenegger/nvim-dap",
-  "yuchanns/phpfmt.nvim"
 }
