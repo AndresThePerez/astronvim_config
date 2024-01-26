@@ -5,9 +5,10 @@ return {
   -- available plugins can be found at https://github.com/AstroNvim/astrocommunity
 
   { import = "astrocommunity.colorscheme.catppuccin" },
+  { import = "astrocommunity.colorscheme.tokyonight-nvim" },
   { import = "astrocommunity.pack.php" },
-  { import = "astrocommunity.pack.html-css" },
-  { import = "astrocommunity.pack.json" },
-  { import = "astrocommunity.pack.html-css" },
-  { import = "astrocommunity.pack.tailwindcss" },
+  { import = "astrocommunity.pack.html-css"},
+  { import = "astrocommunity.pack.json"},
+  { import = "astrocommunity.pack.html-css"},
+  { import = "astrocommunity.pack.tailwindcss"},
 }

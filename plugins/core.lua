@@ -1,25 +1,33 @@
 return {
-  -- customize alpha options
-  {
-    "goolord/alpha-nvim",
-    opts = function(_, opts)
-      -- customize the dashboard header
-      opts.section.header.val = {
-        " █████  ███████ ████████ ██████   ██████",
-        "██   ██ ██         ██    ██   ██ ██    ██",
-        "███████ ███████    ██    ██████  ██    ██",
-        "██   ██      ██    ██    ██   ██ ██    ██",
-        "██   ██ ███████    ██    ██   ██  ██████",
-        " ",
-        "    ███    ██ ██    ██ ██ ███    ███",
-        "    ████   ██ ██    ██ ██ ████  ████",
-        "    ██ ██  ██ ██    ██ ██ ██ ████ ██",
-        "    ██  ██ ██  ██  ██  ██ ██  ██  ██",
-        "    ██   ████   ████   ██ ██      ██",
-      }
-      return opts
-    end,
-  },
+    { "mfussenegger/nvim-dap", enabled = true },
+    {
+      "goolord/alpha-nvim",
+      opts = function(_, opts) -- override the options using lazy.nvim
+        opts.section.header.val = { -- change the header section value
+          " █████╗ ███╗   ██╗██████╗ ██████╗ ███████╗███████╗",
+          "██╔══██╗████╗  ██║██╔══██╗██╔══██╗██╔════╝██╔════╝",
+          "███████║██╔██╗ ██║██║  ██║██████╔╝█████╗  ███████╗",
+          "██╔══██║██║╚██╗██║██║  ██║██╔══██╗██╔══╝  ╚════██║",
+          "██║  ██║██║ ╚████║██████╔╝██║  ██║███████╗███████║",
+          "╚═╝  ╚═╝╚═╝  ╚═══╝╚═════╝ ╚═╝  ╚═╝╚══════╝╚══════╝",
+          "                                                  ",
+          "             ██╗   ██╗██╗███╗   ███╗              ",
+          "             ██║   ██║██║████╗ ████║              ",
+          "             ██║   ██║██║██╔████╔██║              ",
+          "             ╚██╗ ██╔╝██║██║╚██╔╝██║              ",
+          "              ╚████╔╝ ██║██║ ╚═╝ ██║              ",
+          "               ╚═══╝  ╚═╝╚═╝     ╚═╝              ",
+          "                                                  "
+        }
+      end,
+    },
+    {
+      "rebelot/heirline.nvim",
+      opts = function(_, opts)
+        opts.winbar = nil
+        return opts
+      end,
+    },
   -- You can disable default plugins as follows:
   -- { "max397574/better-escape.nvim", enabled = false },
   --
