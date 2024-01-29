@@ -4,6 +4,9 @@ return {
   dependencies = {
     -- { "theHamsta/nvim-dap-virtual-text", config = true },
   },
+  opts = {
+        ensure_installed = { "php" }
+      },
   config = function()
     local dap = require "dap"
     dap.adapters.php = {
