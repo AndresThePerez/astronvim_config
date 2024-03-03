@@ -78,6 +78,22 @@ return {
       -- "pyright"
       -- "phpactor",
     },
+    config = {
+      phpcsfixer = function()
+        return {
+          cmd = { "php-cs-fixer", "--rules", "@PSR12", "--no-cache" };
+          filetypes = { "php" };
+          root_dir = require("lspconfig.util").root_pattern('php')
+        }
+      end,
+      phpcs = function()
+          return {
+            cmd = { "phpcs", "--standard", "~/rebuy/admin-api/apps/ci4/psr12-standards.xml", "--no-cache", "-e" };
+            filetypes = { "php" };
+            root_dir = require("lspconfig.util").root_pattern('php')
+          }
+      end,
+    }
   },
 
   plugins = {},
